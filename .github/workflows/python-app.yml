@@ -16,7 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: iterative/setup-dvc@v1
+    - uses: iterative/setup-dvc@v1 
+    - name: interactive setup dvc
       run: |
         dvc pull
     - name: Set up Python 3.8
