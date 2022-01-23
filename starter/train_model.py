@@ -5,6 +5,7 @@ Author: Marina Dolokov
 Date: January 2022
 '''
 
+from os import sep
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import sys
@@ -33,8 +34,10 @@ cat_features = [
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True)
 
+print('Start')
 X_test, y_test, encoder_test, lb_test = process_data(
-    test, categorical_features=cat_features, label="salary", training=True)
+    test, categorical_features=cat_features, label="salary", training=False)
+print('end')
 
 # training and saving the model 
 model = train_model(X_train, y_train)
