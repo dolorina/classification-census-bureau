@@ -1,4 +1,9 @@
-# Script to train machine learning model.
+'''
+Script to train machine learning model.
+
+Author: Marina Dolokov
+Date: January 2022
+'''
 
 from sklearn.model_selection import train_test_split
 import pandas as pd
