@@ -1,5 +1,7 @@
-from sklearn.metrics import fbeta_score, precision_score, recall_score
-
+from sklearn.metrics import make_scorer, accuracy_score, fbeta_score, precision_score, recall_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report
+from sklearn.svm import SVC
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -17,8 +19,36 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
+    
+    # model = SVC(decision_function_shape='ovo') # GridSearchCV(SVC(), tuned_parameters, scoring="%s_macro" % score)
+    # model.fit(X_train, y_train)
 
-    pass
+    # Set the parameters by cross-validation
+    tuned_parameters = [
+        {"kernel": ["rbf"], "gamma": [1e-3, 1e-4], "C": [1, 10, 100]},
+        {"kernel": ["linear"], "C": [1, 10]}, #, 100, 1000]},
+    ]
+    scores = {"accuracy": make_scorer(accuracy_score), "precision":  make_scorer(precision_score), "recall": make_scorer(recall_score)}
+
+    for score in scores:
+        print("# Tuning hyper-parameters for %s" % score)
+        print()
+
+        model = GridSearchCV(SVC(), tuned_parameters, scoring="%s_macro" % score)
+        model.fit(X_train, y_train)
+        
+        print("Best parameters set found on development set:")
+        print(model.best_params_)
+        print()
+
+        print("Grid scores on development set:")
+        means = model.cv_results_["mean_test_score"]
+        stds = model.cv_results_["std_test_score"]
+        for mean, std, params in zip(means, stds, model.cv_results_["params"]):
+            print("%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params))
+        print()
+
+    return model 
 
 
 def compute_model_metrics(y, preds):
@@ -37,10 +67,11 @@ def compute_model_metrics(y, preds):
     recall : float
     fbeta : float
     """
+    accuracy = accuracy_score(y, preds)
     fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
     precision = precision_score(y, preds, zero_division=1)
     recall = recall_score(y, preds, zero_division=1)
-    return precision, recall, fbeta
+    return accuracy, precision, recall, fbeta
 
 
 def inference(model, X):
@@ -57,4 +88,5 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    preds = model.predict(X)
+    return preds

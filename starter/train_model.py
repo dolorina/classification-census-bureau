@@ -34,12 +34,15 @@ cat_features = [
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True)
 
-print('Start')
-X_test, y_test, encoder_test, lb_test = process_data(
-    test, categorical_features=cat_features, label="salary", training=False)
-print('end')
+X_test, y_test, encoder, lb = process_data(
+    X=test, categorical_features=cat_features, label="salary", training=False,
+    encoder=encoder, lb=lb)
 
 # training and saving the model 
 model = train_model(X_train, y_train)
 preds = inference(model, X_test)
-precision, recall, fbeta = compute_model_metrics(y_test, preds)
+accuracy, precision, recall, fbeta = compute_model_metrics(y_test, preds)
+print('Accuracy', accuracy)
+print('Precision', precision)
+print('Recall', recall)
+print('F1', fbeta)
