@@ -42,6 +42,7 @@ X_test, y_test, encoder, lb = process_data(
 model = train_model(X_train, y_train)
 preds = inference(model, X_test)
 accuracy, precision, recall, fbeta = compute_model_metrics(y_test, preds)
+
 print('Accuracy', accuracy)
 print('Precision', precision)
 print('Recall', recall)
