@@ -21,8 +21,9 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
         role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
-        # role-session-name: CensusBureau
+        role-session-name: CensusBureau
     - uses: iterative/setup-dvc@v1 
     - name: interactive setup dvc # work left 
       run: |
