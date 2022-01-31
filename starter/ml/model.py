@@ -73,7 +73,7 @@ def train_model(X_train, y_train):
     #     'learning_rate': ['constant','adaptive'],
     # }
     parameter_space = {
-        'hidden_layer_sizes': [(20,)],
+        'hidden_layer_sizes': [(10,)],
         'activation': ['relu'],
         'solver': ['adam'],
         'alpha': [0.001],
