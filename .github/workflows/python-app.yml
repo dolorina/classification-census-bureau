@@ -44,7 +44,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest classification-census-bureau/starter/test_model.py
     
         
     - name: Copy files with the AWS CLI
