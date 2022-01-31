@@ -1,5 +1,4 @@
 [core]
-    remote = storage
     cloud = AWS
 ['remote "localremote"']
     url = ../../local_remote
