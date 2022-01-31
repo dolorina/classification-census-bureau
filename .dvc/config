@@ -6,3 +6,4 @@
     url = s3://censusbureaubucket
 ['remote "storage"']
     url = s3://censusbureaubucket/dvcstore
+remote = storage
