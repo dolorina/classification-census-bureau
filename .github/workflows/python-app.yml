@@ -44,9 +44,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest classification-census-bureau/starter/test_model.py
+        pytest starter/test_model.py
     
         
-    - name: Copy files with the AWS CLI
-      run: |
-        aws s3 sync . s3://censusbureaubucket/dvcstore
+    # - name: Copy files with the AWS CLI
+    #   run: |
+    #     aws s3 sync . s3://censusbureaubucket/dvcstore
