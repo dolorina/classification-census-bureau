@@ -19,6 +19,7 @@ jobs:
     - uses: iterative/setup-dvc@v1 
     - name: interactive setup dvc # work left 
       run: |
+        aws configure
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         dvc pull
