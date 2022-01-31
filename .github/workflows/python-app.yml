@@ -50,6 +50,6 @@ jobs:
         role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
         # role-session-name: CensusBureau
         
-    # - name: Copy files with the AWS CLI
-    #   run: |
-    #     aws s3 sync . s3://censusbureaubucket/dvc-storage
+    - name: Copy files with the AWS CLI
+      run: |
+        aws s3 sync . s3://censusbureaubucket/dvcstore
