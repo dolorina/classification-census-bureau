@@ -12,20 +12,6 @@ from data import process_data
 
 # # Optional: implement hyperparameter tuning.
 # def train_model(X_train, y_train):
-#     """
-#     Trains a machine learning model and returns it.
-# 
-#     Inputs
-#     ------
-#     X_train : np.array
-#         Training data.
-#     y_train : np.array
-#         Labels.
-#     Returns
-#     -------
-#     model
-#         Trained machine learning model.
-#     """
 #     X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.10)
 #     
 #     model_names = ["Random forest", "SVM", "Gaussian naive bayes", "Decision tree", "Neural network"]
@@ -60,6 +46,9 @@ from data import process_data
 #     print()
 #     return trained_models[best_model]
 
+
+
+
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
     """
@@ -76,24 +65,24 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    parameter_space = {
-        'hidden_layer_sizes': [(200, 100, 10,), (100, 50, 10,), (100,), (20,), (10,)],
-        'activation': ['relu'],
-        'solver': ['sgd', 'adam'],
-        'alpha': [0.001, 0.0001],
-        'learning_rate': ['constant','adaptive'],
-    }
     # parameter_space = {
-    #     'hidden_layer_sizes': [(200, 100, 10,)],
+    #     'hidden_layer_sizes': [(200, 100, 10,), (100, 50, 10,), (100,), (20,), (10,)],
     #     'activation': ['relu'],
-    #     'solver': ['adam'],
-    #     'alpha': [0.001],
-    #     'learning_rate': ['constant'],
+    #     'solver': ['sgd', 'adam'],
+    #     'alpha': [0.001, 0.0001],
+    #     'learning_rate': ['constant','adaptive'],
     # }
+    parameter_space = {
+        'hidden_layer_sizes': [(10,)],
+        'activation': ['relu'],
+        'solver': ['adam'],
+        'alpha': [0.001],
+        'learning_rate': ['constant'],
+    }
     print("Find best hyperparameter setting.")
     print()
 
-    model = MLPClassifier(max_iter=5000)
+    model = MLPClassifier(max_iter=1000) # 5000
     model = GridSearchCV(model, parameter_space, n_jobs=-1, cv=5)
     model.fit(X_train, y_train)    
     print("Best parameters found:\n", model.best_params_)
