@@ -7,9 +7,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV
-from numpy import append, array, argmax, argmin, zeros, bincount
-from data import process_data
 
+
+# from numpy import append, array, argmax, argmin, zeros, bincount
 # # Optional: implement hyperparameter tuning.
 # def train_model(X_train, y_train):
 #     X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.10)
