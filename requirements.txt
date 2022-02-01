@@ -17,7 +17,7 @@ jupyter_client==7.1.1
 jupyter_console==6.4.0
 jupyter_core==4.9.1
 jupyter_server==1.13.3
-jupyterlab==3.2.8=pyhd8
+jupyterlab==3.2.8
 # jupyterlab_pygments==0.1.2=pyh9f
 # jupyterlab_server==2.10.3=pyhd8
 # jupyterlab_widgets==1.0.2=pyhd8
