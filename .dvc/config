@@ -1,8 +1,0 @@
-[core]
-    remote = storagehttp
-['remote "localremote"']
-    url = ../../local_remote
-['remote "storage"']
-    url = s3://censusbureaubucket/dvcstorage
-['remote "storagehttp"']
-    url = https://bucket.s3.amazonaws.com/dvcstore
