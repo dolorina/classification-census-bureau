@@ -26,7 +26,6 @@ jobs:
     - uses: iterative/setup-dvc@v1 
     - name: interactive setup dvc # work left 
       run: |
-        dvc remote add -d myremote s3://censuscureaubucket/dvcstore
         dvc pull
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
