@@ -1,4 +1,12 @@
+'''
+Script that contains a function that processes data for machine learning 
+
+Author: Marina Dolokov
+Date: Februar 2022
+'''
+
 import numpy as np
+import pickle
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 
@@ -43,7 +51,6 @@ def process_data(
         Trained LabelBinarizer if training is True, otherwise returns the binarizer
         passed in.
     """
-
     if label is not None:
         y = X[label]
         X = X.drop([label], axis=1)
@@ -58,18 +65,15 @@ def process_data(
         lb = LabelBinarizer()
         X_categorical = encoder.fit_transform(X_categorical)
         y = lb.fit_transform(y.values).ravel()
+        pickle.dump(encoder, open("./mlp_encoder.sav", 'wb'))
+        pickle.dump(lb, open("./mlp_lb.sav", 'wb'))        
     else:
-        # X_categorical = encoder.transform(X_categorical)
+        X_categorical = encoder.transform(X_categorical)
         try:
-            X_categorical = encoder.transform(X_categorical)
             y = lb.transform(y.values).ravel()
         # Catch the case where y is None because we're doing inference.
         except AttributeError:
-            print('For inference step the label binarizer and encoder are set to default')
-            encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
-            lb = LabelBinarizer()
-            X_categorical = encoder.fit_transform(X_categorical) # "fit_transform" or just "transform"?
-            y = lb.fit_transform(y.values).ravel() # "fit_transform" or just "transform"?
-             
+            print('Y is None because we are doing inference')
+            
     X = np.concatenate([X_continuous, X_categorical], axis=1)
     return X, y, encoder, lb
