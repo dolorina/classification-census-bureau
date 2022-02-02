@@ -28,20 +28,20 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    parameter_space = {
-        'hidden_layer_sizes': [(200, 100, 10,), (100, 50, 10,), (100,), (20,), (10,)],
-        'activation': ['relu'],
-        'solver': ['sgd', 'adam'],
-        'alpha': [0.001, 0.0001],
-        'learning_rate': ['constant','adaptive'],
-    }
     # parameter_space = {
-    #     'hidden_layer_sizes': [(10,)],
+    #     'hidden_layer_sizes': [(200, 100, 10,), (100, 50, 10,), (100,), (20,), (10,)],
     #     'activation': ['relu'],
-    #     'solver': ['adam'],
-    #     'alpha': [0.001],
-    #     'learning_rate': ['constant'],
+    #     'solver': ['sgd', 'adam'],
+    #     'alpha': [0.001, 0.0001],
+    #     'learning_rate': ['constant','adaptive'],
     # }
+    parameter_space = {
+        'hidden_layer_sizes': [(10,)],
+        'activation': ['relu'],
+        'solver': ['adam'],
+        'alpha': [0.001],
+        'learning_rate': ['constant'],
+    }
     print("Find best hyperparameter setting.")
     print()
     
