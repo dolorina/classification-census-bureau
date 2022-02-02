@@ -5,14 +5,6 @@ Author: Marina Dolokov
 Date: Februar 2022
 '''
 
-from __future__ import absolute_import
-
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-import ml
-
 import numpy as np
 import pickle
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder

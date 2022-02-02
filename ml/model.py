@@ -5,14 +5,6 @@ Author: Marina Dolokov
 Date: Februar 2022
 '''
 
-from __future__ import absolute_import
-
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-import ml
-
 from sklearn.metrics import accuracy_score, fbeta_score, precision_score, recall_score
 from sklearn.metrics import classification_report
 from sklearn.neural_network import MLPClassifier
