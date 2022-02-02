@@ -5,6 +5,7 @@ Author: Marina Dolokov
 Date: Februar 2022
 '''
 
+from .context import mypkg
 from data import process_data
 from model import compute_model_metrics, inference, train_model, metrics_on_fixed_features
 
