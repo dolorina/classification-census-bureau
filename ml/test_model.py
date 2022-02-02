@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 
 def load_data():
     # load in the data
-    data = pd.read_csv('../data/census_preprocessed.csv')
+    data = pd.read_csv('./census_preprocessed.csv')
     train, test = train_test_split(data, test_size=0.20)
     cat_feat = [
         "workclass",
