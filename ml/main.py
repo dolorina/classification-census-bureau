@@ -9,9 +9,10 @@ from fastapi import FastAPI, Body
 from pydantic import BaseModel, Field
 import pandas as pd
 import numpy as np
+import pickle
 
-model = load_model()
-encoder = load_model("./mlp_encoder.sav")
+model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
+encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))
 
 class Data(BaseModel):
     age: int = Field(..., example = 50)
