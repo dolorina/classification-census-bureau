@@ -4,7 +4,7 @@ Script to build the FastAPI App
 Author: Marina Dolokov
 Date: February 2022
 '''
-from model import load_model, inference
+
 from fastapi import FastAPI, Body
 from pydantic import BaseModel, Field
 import pandas as pd
@@ -53,7 +53,7 @@ def calculate_inference(data):
     
     X = np.concatenate([X_cnt, X_cat], axis=1)
 
-    preds = inference(model, X)
+    preds = model.predict(X)
     print(preds)
     if preds == 0 :
         salary = "<=50k"
