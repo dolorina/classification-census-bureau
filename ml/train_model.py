@@ -42,7 +42,7 @@ X_test, y_test, _, _ = process_data(
     encoder=encoder, lb=lb)
 
 # training and saving the model 
-model = train_model(X_train, y_train) 
+# model = train_model(X_train, y_train) 
 model = load_model() 
 preds = inference(model, X_test)
 precision, recall, f1, accuracy = compute_model_metrics(y_test, preds)
