@@ -57,7 +57,7 @@ def train_model(X_train, y_train):
     pickle.dump(model, open("./mlp_classifier.sav", 'wb')) 
     return model
 
-def load_model(name="./mlp_classifier.sav"):
+def load_model(name="../ml/mlp_classifier.sav"):
     '''
     Loads a trained and saved machine learning model and return it. 
 

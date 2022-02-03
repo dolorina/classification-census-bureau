@@ -5,60 +5,28 @@ Author: Marina Dolokov
 Date: February 2022
 '''
 from model import load_model, inference
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 from pydantic import BaseModel, Field
 import pandas as pd
 import numpy as np
 
 model = load_model()
-encoder = load_model("./mlp_encoder.sav")
+encoder = load_model("../ml/mlp_encoder.sav")
 
 class Data(BaseModel):
-    age: int = Field(..., example = 25)
-    workclass: str = Field(..., example = "Private")
-    education: str = Field(..., example = "Masters")
-    marital_status: str = Field(..., example = "Never-married")
-    occupation: str = Field(..., example = "Programming")
-    relationship: str = Field(..., example = "Not-in-family")
+    age: int = Field(..., example = 50)
+    workclass: str = Field(..., example = "Self-emp-not-inc")
+    education: str = Field(..., example = "Bachelors")
+    marital_status: str = Field(..., example = "Married-civ-spouse")
+    occupation: str = Field(..., example = "Exec-managerial")
+    relationship: str = Field(..., example = "Husband")
     race: str = Field(..., example = "White")
-    sex: str = Field(..., example = "Female")
+    sex: str = Field(..., example = "Male")
     capital_gain: int = Field(..., example = 0)
     capital_loss: int = Field(..., example = 0)
-    hours_per_week: int = Field(..., example = 40)
-    native_country: str = Field(..., example = "Germany")
-
-    # class Config:
-    #     schema_extra = {
-    #         "example": {
-    #             # Example >50k
-    #             "age": 42,
-    #             "workclass": "Self-emp-not-inc",
-    #             "education": "HS-grad",
-    #             "marital_status": "Married-civ-spouse",
-    #             "occupation": "Farming-fishing",
-    #             "relationship": "Husband",
-    #             "race": "Asian-Pac-Islander",
-    #             "sex": "Male",
-    #             "capital_gain": 0,
-    #             "capital_loss": 0,
-    #             "hours_per_week": 40,
-    #             "native_country": "Cambodia"
-# 
-    #             # # Example <=50k 
-    #             # "age": 39,
-    #             # "workclass": "State-gov",
-    #             # "education": "Bachelors",
-    #             # "marital_status": "Never-married",
-    #             # "occupation": "Adm-clerical",
-    #             # "relationship": "Not-in-family",
-    #             # "race": "White",
-    #             # "sex": "Male",
-    #             # "capital_gain": 2174,
-    #             # "capital_loss": 0,
-    #             # "hours_per_week": 40,
-    #             # "native_country": "United-States"
-    #         }
-    #     }
+    hours_per_week: int = Field(..., example = 13)
+    native_country: str = Field(..., example = "United-States")
+        
     
 def calculate_inference(data):
     X_cat = np.array([
@@ -77,8 +45,6 @@ def calculate_inference(data):
     
     X_cnt = np.array([
         data.age, 
-        # 1, # fnlgt
-        # data.education_num, 
         data.capital_gain,
         data.capital_loss, 
         data.hours_per_week])
