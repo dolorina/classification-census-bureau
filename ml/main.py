@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 
 model = load_model()
-encoder = load_model("../ml/mlp_encoder.sav")
+encoder = load_model("./mlp_encoder.sav")
 
 class Data(BaseModel):
     age: int = Field(..., example = 50)
