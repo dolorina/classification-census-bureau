@@ -46,10 +46,6 @@ X_test, y_test, _, _ = process_data(
 model = load_model() 
 preds = inference(model, X_test)
 precision, recall, f1, accuracy = compute_model_metrics(y_test, preds)
-for i in range(len(y_test)):
-    if y_test[i] == 1: 
-        print("HI")
-        print(model.predict(X_test)[i], y_test[i])
 
 print("Metrics:")
 print("    prec={}, rec={}, f1={}, acc={}".format(round(precision, 3), round(recall, 3), round(f1, 3), round(accuracy, 3)))
