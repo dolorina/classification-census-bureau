@@ -26,7 +26,9 @@ jobs:
     - uses: iterative/setup-dvc@v1 
     - name: interactive setup dvc # work left 
       run: |
+        dvc config core.no_scm true
         dvc pull
+        rm -r .dvc .apt/usr/lib/dvc # reduces slug size
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
