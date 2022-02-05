@@ -8,7 +8,7 @@ Date: February 2022
 from fastapi.testclient import TestClient
 
 # Import our app from main.py.
-from ml.main import app
+from main import app
 
 # Instantiate the testing client with our app.
 client = TestClient(app)
