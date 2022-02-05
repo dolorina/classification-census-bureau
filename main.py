@@ -19,8 +19,12 @@ import os
 #         exit("dvc pull failed")
 #     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
-model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
-encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))    
+try:
+    model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
+    encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))    
+except:
+    model = pickle.load(open("./mlp_classifier.sav", "rb"))
+    encoder = pickle.load(open("./mlp_encoder.sav", "rb"))    
 
 class Data(BaseModel):
     age: int = Field(..., example = 50)
