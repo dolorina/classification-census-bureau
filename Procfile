@@ -1,1 +1,1 @@
-web: uvicorn ml/main:app --reload
+web: gunicorn ml/main:app
