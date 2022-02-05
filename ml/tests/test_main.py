@@ -6,11 +6,9 @@ Date: February 2022
 
 '''
 from fastapi.testclient import TestClient
-import sys
-sys.path.append('/home/runner/work/classification-census-bureau/classification-census-bureau/ml/')
 
 # Import our app from main.py.
-from main import app
+from ml.main import app
 
 # Instantiate the testing client with our app.
 client = TestClient(app)
