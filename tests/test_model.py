@@ -6,7 +6,8 @@ Date: Februar 2022
 '''
 
 from ml.data import process_data
-from ml.model import compute_model_metrics, inference, train_model, metrics_on_fixed_features
+from ml.model import compute_model_metrics, inference, train_model # , metrics_on_fixed_features
+
 
 import pandas as pd
 import numpy as np 

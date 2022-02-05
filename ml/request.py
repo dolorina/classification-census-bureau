@@ -1,5 +1,5 @@
 import requests
-import json
+# import json
 
 response = requests.post('http://127.0.0.1:8000/items/')
 
@@ -17,5 +17,6 @@ response = requests.post('http://127.0.0.1:8000/items/')
 #         "native_country": "Cambodia"
 #         }
 # response = requests.post('http://127.0.0.1:8000/items/', auth=('usr', 'pass'), data=json.dumps(data))
+
 print(response.status_code)
 print(response.json())
