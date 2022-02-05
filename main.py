@@ -19,12 +19,9 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
         exit("dvc pull failed")
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
-try:
-    model = pickle.load(open("./mlp_classifier.sav", "rb"))
-    encoder = pickle.load(open("./mlp_encoder.sav", "rb"))
-except: 
-    model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
-    encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))    
+model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
+encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))    
+
 class Data(BaseModel):
     age: int = Field(..., example = 50)
     workclass: str = Field(..., example = "Self-emp-not-inc")
