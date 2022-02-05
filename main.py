@@ -72,10 +72,10 @@ def calculate_inference(data):
 
 app = FastAPI()
 
-@app.get("/items/")
+@app.get("/")
 def get_root():
     return{"message": "Welcome to the census classification API"}
 
-@app.post("/items/")
+@app.post("/")
 async def model_inference(data: Data):
     return calculate_inference(data)
