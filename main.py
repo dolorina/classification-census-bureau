@@ -72,7 +72,7 @@ def calculate_inference(data):
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/items/")
 def get_root():
     return{"message": "Welcome to the census classification API"}
 
