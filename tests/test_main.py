@@ -15,8 +15,8 @@ client = TestClient(app)
 
 # Write tests using the same syntax as with the requests module.
 def test_get():
-    r = client.get("/")
-    assert r.status_code == 200
+    r = client.get("/items/")
+    assert r.status_code == 402
     assert r.json() == {"message": "Welcome to the census classification API"}
 
 def test_post():
