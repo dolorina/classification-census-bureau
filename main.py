@@ -20,11 +20,11 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 try:
-    model = pickle.load(open("./ml/mlp_classifier.sav.dvc", "rb"))
-    encoder = pickle.load(open("./ml/mlp_encoder.sav.dvc", "rb"))    
+    model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
+    encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))    
 except:
-    model = pickle.load(open("./mlp_classifier.sav.dvc", "rb"))
-    encoder = pickle.load(open("./mlp_encoder.sav.dvc", "rb"))    
+    model = pickle.load(open("./mlp_classifier.sav", "rb"))
+    encoder = pickle.load(open("./mlp_encoder.sav", "rb"))    
 
 class Data(BaseModel):
     age: int = Field(..., example = 50)
