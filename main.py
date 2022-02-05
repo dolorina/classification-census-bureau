@@ -13,18 +13,18 @@ import pickle
 
 import os
 
-# if "DYNO" in os.environ and os.path.isdir(".dvc"):
-#     os.system("dvc config core.no_scm true")
-#     if os.system("dvc pull") != 0:
-#         exit("dvc pull failed")
-#     os.system("rm -r .dvc .apt/usr/lib/dvc")
+if "DYNO" in os.environ and os.path.isdir(".dvc"):
+    os.system("dvc config core.no_scm true")
+    if os.system("dvc pull") != 0:
+        exit("dvc pull failed")
+    os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 try:
-    model = pickle.load(open("./ml/mlp_classifier.sav", "rb"))
-    encoder = pickle.load(open("./ml/mlp_encoder.sav", "rb"))    
+    model = pickle.load(open("./ml/mlp_classifier.sav.dvc", "rb"))
+    encoder = pickle.load(open("./ml/mlp_encoder.sav.dvc", "rb"))    
 except:
-    model = pickle.load(open("./mlp_classifier.sav", "rb"))
-    encoder = pickle.load(open("./mlp_encoder.sav", "rb"))    
+    model = pickle.load(open("./mlp_classifier.sav.dvc", "rb"))
+    encoder = pickle.load(open("./mlp_encoder.sav.dvc", "rb"))    
 
 class Data(BaseModel):
     age: int = Field(..., example = 50)
