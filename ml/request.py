@@ -1,7 +1,7 @@
 import requests
 # import json
 
-response = requests.post('http://127.0.0.1:8000/items/')
+response = requests.post('https://census-bureau-app.herokuapp.com/')
 
 # data = {"age": 42,
 #         "workclass": "Self-emp-not-inc",
