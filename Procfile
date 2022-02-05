@@ -1,0 +1,1 @@
+web: uvicorn ml/main:app --reload 
