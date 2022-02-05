@@ -40,7 +40,7 @@ def test_post_prediction():
                             }
                     )
     assert r.json() == {"Predicted salary": ">50k"}
-    r = client.post("/items/", 
+    r = client.post("/", 
                     json = {"age": 50,
                             "workclass": "Self-emp-not-inc",
                             "education": "Bachelors",
