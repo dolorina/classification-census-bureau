@@ -1,5 +1,5 @@
 
-# Salary orediction based on census bureau
+# Salary prediction based on census bureau
 
 ## Model Details
 
