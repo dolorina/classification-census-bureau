@@ -9,13 +9,13 @@ The model and the data were updated by using git and DVC.
 
 ## Run code
 
-To run the code and train a mlp classifier to predict salary based on census data run: 
+To train a mlp classifier to predict salary based on census data, run: 
 
 ```
 python ml/train_model.py
 ```
 
-If you want to run the RESTful API run: 
+If you want to run the RESTful API, run: 
 
 ```
 uvicorn main:app --reload
