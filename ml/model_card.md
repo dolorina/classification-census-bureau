@@ -11,7 +11,8 @@ This model should be used to predict whether a person gains more or less than 50
 
 ## Metrics
 
-The model was evaluated using the precision metric. The value of precision is prec=0.803.  
+The model was evaluated using the precision metric. The value of precision is prec=0.708.  
+Also recall, f1 score and accuracy were calculated. The values are rec=0.651, f1=0.678, acc=0.849. 
 
 ## Data
 
