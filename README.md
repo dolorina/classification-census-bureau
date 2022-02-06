@@ -1,6 +1,8 @@
 
 # classification-census-bureau
 
+[Link to GiHub Repository](https://github.com/dolorina/classification-census-bureau)
+
 In this project, a classification model is developed on publicly available Census Bureau data. More information about the model and the used  data can be found in the model card in the ml folder. 
 
 Unit tests were created to monitor the model performance on various slices of the data. The model was deployed using the FastAPI package and API tests were created. Both the slice-validation and the API tests are incorporated into a CI/CD framework using GitHub Actions.
