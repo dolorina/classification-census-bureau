@@ -23,7 +23,7 @@ def test_post():
     r = client.post("/items/")
     assert r.status_code == 422
 
-def test_post_prediction():
+def test_post_prediction_more50():
     r = client.post("/items/", 
                     json = {"age": 42,
                             "workclass": "Self-emp-not-inc",
@@ -40,6 +40,9 @@ def test_post_prediction():
                             }
                     )
     assert r.json() == {"Predicted salary": ">50k"}
+    assert r.status_code == 422
+
+def test_post_prediction_less50():
     r = client.post("/items/", 
                     json = {"age": 50,
                             "workclass": "Self-emp-not-inc",
@@ -56,3 +59,5 @@ def test_post_prediction():
                             }
                     )
     assert r.json() == {"Predicted salary": "<=50k"}
+    assert r.status_code == 422
+    
