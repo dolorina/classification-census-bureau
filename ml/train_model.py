@@ -42,8 +42,8 @@ X_test, y_test, _, _ = process_data(
     encoder=encoder, lb=lb)
 
 # training and saving the model 
-# model = train_model(X_train, y_train) 
-model = load_model() 
+model = train_model(X_train, y_train) 
+# model = load_model() 
 preds = inference(model, X_test)
 precision, recall, f1, accuracy = compute_model_metrics(y_test, preds)
 
@@ -51,23 +51,23 @@ print("Metrics:")
 print("    prec={}, rec={}, f1={}, acc={}".format(round(precision, 3), round(recall, 3), round(f1, 3), round(accuracy, 3)))
 print()
 
-# print('Metrics in salary')
-# metrics_on_salary = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="salary")
-# print('Type', type(metrics_on_salary))
-# print(metrics_on_salary)
-# print()
-# 
-# print('Metrics in sex')
-# metrics_on_sex = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="sex")
-# print(metrics_on_sex)
-# print()
-# 
-# print('Metrics in education')
-# metrics_on_education = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="education")
-# round(metrics_on_education, 3).to_csv("./slice_output.txt", header=None, index=None, sep=' ', mode='a')
-# print(metrics_on_education)
-# print()
-# 
-# print('Metrics in workclass')
-# metrics_on_workclass = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="workclass")
-# print(metrics_on_workclass)
+print('Metrics in salary')
+metrics_on_salary = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="salary")
+print('Type', type(metrics_on_salary))
+print(metrics_on_salary)
+print()
+
+print('Metrics in sex')
+metrics_on_sex = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="sex")
+print(metrics_on_sex)
+print()
+
+print('Metrics in education')
+metrics_on_education = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="education")
+round(metrics_on_education, 3).to_csv("./slice_output.txt", header=None, index=None, sep=' ', mode='a')
+print(metrics_on_education)
+print()
+
+print('Metrics in workclass')
+metrics_on_workclass = metrics_on_fixed_features(model, test, cat_feat, encoder, lb, feature="workclass")
+print(metrics_on_workclass)
