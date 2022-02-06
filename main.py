@@ -80,6 +80,6 @@ app = FastAPI()
 def get_root():
     return{"message": "Welcome to the census classification API"}
 
-@app.post("/")
+@app.post("/items/")
 async def model_inference(data: Data):
     return calculate_inference(data)

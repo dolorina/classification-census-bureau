@@ -20,11 +20,11 @@ def test_get():
     assert r.json() == {"message": "Welcome to the census classification API"}
 
 def test_post():
-    r = client.post("/")
+    r = client.post("/items/")
     assert r.status_code == 422
 
 def test_post_prediction():
-    r = client.post("/", 
+    r = client.post("/items/", 
                     json = {"age": 42,
                             "workclass": "Self-emp-not-inc",
                             "education": "HS-grad",
@@ -40,7 +40,7 @@ def test_post_prediction():
                             }
                     )
     assert r.json() == {"Predicted salary": ">50k"}
-    r = client.post("/", 
+    r = client.post("/items/", 
                     json = {"age": 50,
                             "workclass": "Self-emp-not-inc",
                             "education": "Bachelors",
